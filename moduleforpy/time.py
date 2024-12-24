@@ -1,17 +1,18 @@
 import time
-
+import random
 import distinct_module
 
 def calculate_time():
-    start_time = time.time()  # Запуск таймера
+    start_time = time.time()
 
-    data = [1, 2, 2, 3, 4, 4, 5]
+    data = []
+    for i in range(1, 100000):
+        data.append(i - random.randint(0,1))
     result = distinct_module.Distinct(data)
     print(result)
+    print(sorted(data))
 
-    end_time = time.time()  # Завершение таймера
-    time_taken = end_time - start_time  # Вычисление времени выполнения в секундах
-
+    time_taken = time.time() - start_time
     return time_taken
 
 print(calculate_time())
